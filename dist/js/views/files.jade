@@ -1,0 +1,58 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    script(src='https://kit.fontawesome.com/46ce0cd314.js', crossorigin='anonymous')
+    link(rel='stylesheet', type='text/css', href='/main.css')
+    title My Works
+  body
+    header
+      .menu-btn
+        .btn-line
+        .btn-line
+        .btn-line
+      nav.menu
+        .menu-branding
+          .portrait
+        ul.menu-nav
+          li.nav-item
+            a.nav-link(href='index.html')
+              | Home
+          li.nav-item
+            a.nav-link(href='about.html')
+              | About Me
+          li.nav-item.current
+            a.nav-link(href='work.html')
+              | My Work
+          li.nav-item
+            a.nav-link(href='contact.html')
+              | Reach Me
+    main#work
+      h1.lg-heading Work
+      h2.sm-heading
+        | Please check out some of my projects...
+        p #{title}
+      .projects
+        table#P_table.Table(style='width:100%')
+          thead
+            tr
+             th Name
+             th Description
+             th Date Completed
+             th Files
+          tbody
+            -each file in files
+                tr
+                 td #{file.name}
+                 td #{file.description}
+                 td #{file.date_completion}
+                 td 
+                    form(action='/goData', method='get')
+                        button View
+
+    script(data-main='/main.js', src='/require.js')
+    script(data-main='/test.js', src='/require.js')
+    script(data-main='/read_file.js', src='/require.js')
+    
+
